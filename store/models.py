@@ -59,6 +59,7 @@ class Order(models.Model):
                 shipping = True
         return shipping
 
+
 class OrderItem(models.Model):
     product = models.ForeignKey(Product, on_delete=models.SET_NULL, null=True)
     order = models.ForeignKey(Order, on_delete=models.SET_NULL, null=True)
