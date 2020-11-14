@@ -122,9 +122,7 @@
             userFormData.name = form.name.value
             userFormData.email = form.email.value
         }
-        console.log('shipping info: ', shippingInfo)
-        console.log('user info: ', userFormData)
-
+        
         var url = '/process_order/'
         fetch(url, {
             method:'POST', 
@@ -138,6 +136,8 @@
         .then((data)=>{
             console.log('success', data);
             alert('Transaction Completed!!')
+            cart = {}
+            document.cookie = 'cart=' + JSON.stringify(cart) + ";domain=;path=/"
             window.location.href = "{% url 'store' %}"
             
         })
